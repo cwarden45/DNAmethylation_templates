@@ -73,7 +73,7 @@ filtered.islands <- COHCAP.avg.by.site(filtered.sites, project.name, project.fol
 
 While we saw false positives at the site level, there are no differentially methylated regions.  Since these are repliates, that is good!
 
-*NOTE* Here, I am using COHCAP.avg.by.site() instead of COHCAP.avg.by.island().  While COHCAP.avg.by.island() is the default stategy that works in most situations, it will not work well if you don't have replicate samples.  Importantly, with this workflow, p-values can be calculated at the region level, when no p-values could be calculated at the site level.
+*NOTE* Here, I am using **COHCAP.avg.by.site()** instead of `COHCAP.avg.by.island()`.  While `COHCAP.avg.by.island()` is the default stategy that works in most situations, it will not work well if you don't have replicate samples.  Importantly, with this workflow, p-values can be calculated at the region level, when no p-values could be calculated at the site level.
 
 
 Just out of curiousity, let's see what happens when we set both the methylated and unmethylated thresholds to 0.3 (which is what I would recommend for clinical samples that show more heterogeniety than cell-line experiments)
