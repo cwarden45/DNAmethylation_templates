@@ -26,3 +26,6 @@ COHCAP.qc(sample.file, beta.table, project.name, project.folder)
 
 #one-vs-one comparison
 sample.file <- "COHCAP_paired_description.txt"
+
+filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2", fdr.cutoff=1, pvalue.cutoff=1, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1)
+filtered.islands <- COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1, fdr.cutoff=1, num.sites=2)
