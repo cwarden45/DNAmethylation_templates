@@ -14,7 +14,7 @@ If you wish to define your own set of annotations (in the same format), there ar
 
 **3) Install [minfi](http://bioconductor.org/packages/release/bioc/html/minfi.html) and [COHCAP](https://www.bioconductor.org/packages/devel/bioc/html/COHCAP.html)**
 
-At this point, you can run the full demo pipeline (via `Rscript minfi_R_3_3.R` followed by `Rscript COHCAP_devel_R_3_4.R`, for example), or run each command step-by-step as follows.  However, you might find that you have to use R 3.3 to get minfi to work (and you have to use R-devel for the COHCAP code, until the next Bioconductor release).
+At this point, you can run the full demo pipeline (via `Rscript minfi_R_3_3.R` followed by `Rscript COHCAP_devel_R_3_4.R`, for example), or run each command step-by-step as follows.  You might find that you have to use R 3.3 to get minfi to work (and you have to use R-devel for the COHCAP code, until the next Bioconductor release).
 
 **4) Normalize the data and prepare the COHCAP input format**
 
