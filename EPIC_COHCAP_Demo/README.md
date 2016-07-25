@@ -56,7 +56,7 @@ filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.fol
 
 *NOTE*: I have re-defined the sample.file to compare one replicate against one replicate.  Notice that I don't have to re-annotate the probes in order to run COHCAP on subsets of samples (just use a different sample description file)
 
-Notice that there are no differentially methylated sites.  Unfortuantely, this is because we don't have replicates.  Let's try this again, removing the p-value and FDR thresholds.
+Notice that there are no differentially methylated sites.  This is because we don't have replicates, and COHCAP had default p-value and FDR filters set to 0.05.  Let's try this again, removing the p-value and FDR thresholds (by setting them to 1).
 
 ```
 project.name <- "EPIC_Test_v2"
