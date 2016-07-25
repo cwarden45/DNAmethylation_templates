@@ -1,6 +1,6 @@
-**<u>NOTE</u>: This script was tested with R-devel.  You might want to wait until the next Bioconductor release to test it on your own**
+**NOTE: This script was tested with R-devel.  You might want to wait until the next Bioconductor release to test it on your own**
 
-1) [Download](ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip) and extract the Illumina EPIC Methylation Demo Dataset
+**1) [Download](ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip) and extract the Illumina EPIC Methylation Demo Dataset**
 
 These are three replicates for the same sample (NA12878).
 
@@ -8,15 +8,15 @@ While this won't be comparible to a 2-group comparison with triplicates, it can 
 
 If COHCAP is in fact good at removing false positives, the differentially methylated region list should be small (whereas the differentially methylated site list may be longer).
 
-2) [Download](https://sourceforge.net/projects/cohcap/files/additional_Bioconductor_annotations.zip/download) extract EPIC custom COHCAP island annotations.
+**2) [Download](https://sourceforge.net/projects/cohcap/files/additional_Bioconductor_annotations.zip/download) extract EPIC custom COHCAP island annotations.**
 
 If you wish to define your own set of annotations (in the same format), there are .bpm and .csv annotation files [here](http://support.illumina.com/array/array_kits/infinium-methylationepic-beadchip-kit/downloads.html), under "Illumina Methylation EPIC Product Files"
 
-3) Install [minfi](http://bioconductor.org/packages/release/bioc/html/minfi.html).
+**3) Install [minfi](http://bioconductor.org/packages/release/bioc/html/minfi.html) and [COHCAP](https://www.bioconductor.org/packages/devel/bioc/html/COHCAP.html)**
 
-At this point, you can run the full demo pipeline (via `Rscript minfi_R_3_3.R` followed by `Rscript COHCAP_devel_R_3_4.R`, for example), or run each command step-by-step as follows:
+At this point, you can run the full demo pipeline (via `Rscript minfi_R_3_3.R` followed by `Rscript COHCAP_devel_R_3_4.R`, for example), or run each command step-by-step as follows.  However, you might find that you have to use R 3.3 to get minfi to work (and you have to use R-devel for the COHCAP code, until the next Bioconductor release).
 
-4) Normalize the data and prepare the COHCAP input format
+**4) Normalize the data and prepare the COHCAP input format**
 
 '''
 library(minfi)
@@ -34,7 +34,7 @@ beta.file = "minfi.txt"
 write.table(output.table, file=beta.file, sep="\t", quote=F, row.names=F)
 '''
 
-5) Annotate Probes and Produce QC Plots
+**5) Annotate Probes and Produce QC Plots**
 
 '''
 library(COHCAP)
@@ -47,7 +47,7 @@ beta.table <- COHCAP.annotate(beta.file, project.name, project.folder, platform=
 COHCAP.qc(sample.file, beta.table, project.name, project.folder)
 '''
 
-6) Filter CpG Differentially Methylated CpG Sites
+**6) Filter CpG Differentially Methylated CpG Sites**
 
 '''
 sample.file <- "COHCAP_paired_description.txt"
@@ -65,7 +65,7 @@ filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.fol
 
 We can now find 70 differentially methylated sites (with no p-value or FDR filters)
 
-7) Identify Differentially Methylated Regions
+**7) Identify Differentially Methylated Regions**
 
 '''
 filtered.islands <- COHCAP.avg.by.site(filtered.sites, project.name, project.folder)
