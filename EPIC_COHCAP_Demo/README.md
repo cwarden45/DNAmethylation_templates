@@ -1,4 +1,4 @@
-**NOTE: This script was tested with R-devel.  You might want to wait until the next Bioconductor release to test it on your own**
+**<u>NOTE</u>: This script was tested with R-devel.  You might want to wait until the next Bioconductor release to test it on your own**
 
 1) [Download](ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip) and extract the Illumina EPIC Methylation Demo Dataset
 
