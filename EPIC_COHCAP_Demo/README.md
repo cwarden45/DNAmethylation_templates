@@ -2,10 +2,9 @@
 
 **1) Download and extract the Illumina EPIC Methylation Demo Dataset**
 
-Click [here](http://support.illumina.com/array/array_kits/infinium-methylationepic-beadchip-kit/downloads.html) and select "Infinium MethylationEPIC Demo Data Set"
-These are three replicates for the same sample (NA12878).
+Click [here](http://support.illumina.com/array/array_kits/infinium-methylationepic-beadchip-kit/downloads.html) and select "Infinium MethylationEPIC Demo Data Set".
 
-While this won't be comparible to a 2-group comparison with triplicates, it can give you can idea about how much variabilty might be expected when comparing two samples without replicates.
+These are three replicates for the same sample (NA12878).   While this won't be comparible to a 2-group comparison with triplicates, it can give you can idea about how much variabilty might be expected when comparing two samples without replicates.
 
 If COHCAP is in fact good at removing false positives, the differentially methylated region list should be small (whereas the differentially methylated site list may be longer).
 
