@@ -1,6 +1,8 @@
 **NOTE: This script was tested with R-devel.  You might want to wait until the next Bioconductor release to test it on your own**
 
-**1) [Download](ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip) and extract the Illumina EPIC Methylation Demo Dataset**
+**1) Download and extract the Illumina EPIC Methylation Demo Dataset**
+
+FTP Link: ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip
 
 These are three replicates for the same sample (NA12878).
 
