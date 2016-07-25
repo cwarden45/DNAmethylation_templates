@@ -2,8 +2,7 @@
 
 **1) Download and extract the Illumina EPIC Methylation Demo Dataset**
 
-FTP Link: [ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip](ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip)
-
+Click [here](http://support.illumina.com/array/array_kits/infinium-methylationepic-beadchip-kit/downloads.html) and select "Infinium MethylationEPIC Demo Data Set"
 These are three replicates for the same sample (NA12878).
 
 While this won't be comparible to a 2-group comparison with triplicates, it can give you can idea about how much variabilty might be expected when comparing two samples without replicates.
