@@ -2,7 +2,7 @@
 
 **1) Download and extract the Illumina EPIC Methylation Demo Dataset**
 
-FTP Link: ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip
+FTP Link: [ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip](ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/productfiles/methylationEPIC/infinium-methylationepic-demo-dataset.zip)
 
 These are three replicates for the same sample (NA12878).
 
