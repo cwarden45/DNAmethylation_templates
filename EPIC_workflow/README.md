@@ -2,6 +2,13 @@
 
 1) minfi_preprocess.R
 
+2) qc.R
+
+3a) run_COHCAP.R
+
+or
+
+3b) run_custom_DMR.R
 
 ### Dependencies (some optional) ###
 
