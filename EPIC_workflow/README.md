@@ -34,3 +34,4 @@ Most results will be provided in the current working directory of the script.
 |beta_normalization|Normalization used to derive beta values.  Can be "illumina", "funnorm", or "noob"; Default = "illumina"|
 |island_mapping|Maps probeIDs to location, gene, and island|
 |promoter_mapping|Maps probeIDs to location, gene, and promoter|
+|cluster_distance| Distance metric for QC dendrogram.  Can be *Euclidean* or *Pearson_Dissimilarity*|
