@@ -27,7 +27,7 @@ Most results will be provided in the current working directory of the script.
 |---|---|
 |comp_name | Name of differential expression comparison (used to name output file)
 |plot_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to plot multiple groups|
-|plot_type | Are are QC and heatmap labels "discrete" or "continous"?  Use commas to describe multiple variables|
+|plot_type | Are are QC and heatmap labels "discrete" or "continous"?  Use commas to describe multiple variables.  If continous, orange=high, green=low|
 |dmr_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to include multiple variables (for multivariate model or gene list filtering)|
 |sample_description_file|Name of Sample Description File|
 |Result_Folder|Path to output folder for selected, final results|
