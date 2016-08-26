@@ -31,7 +31,7 @@ Most results will be provided in the current working directory of the script.
 |dmr_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to include multiple variables (for multivariate model or gene list filtering)|
 |sample_description_file|Name of Sample Description File|
 |Result_Folder|Path to output folder for selected, final results|
-|beta_prefix|Table of beta values will be called *[beta_prefix]_[beta.normalization].txt*; Default = "minfi"|
+|beta_prefix|Table of beta values will be called *[beta_prefix]_[beta.normalization].txt*|
 |beta_normalization|Normalization used to derive beta values.  Can be "illumina", "funnorm", or "noob"|
 |island_mapping|Maps probeIDs to location, gene, and island|
 |promoter_mapping|Maps probeIDs to location, gene, and promoter|
