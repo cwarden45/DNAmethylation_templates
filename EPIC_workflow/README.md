@@ -14,5 +14,5 @@ minfi: http://bioconductor.org/packages/release/bioc/html/minfi.html
 |plot_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to plot multiple groups|
 |dmr_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to include multiple variables (for multivariate model or gene list filtering)|
 |sample_description_file|Name of Sample Description File|
-|beta_prefix|Table of beta values will be called [beta_prefix]_[beta.normalization].txt|
+|beta_prefix|Table of beta values will be called *[beta_prefix]_[beta.normalization].txt*|
 |beta_normalization|Normalization used to derive beta values.  Can be "illumina", "funnorm", or "noob"|
