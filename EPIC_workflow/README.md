@@ -7,6 +7,9 @@
 
 minfi: http://bioconductor.org/packages/release/bioc/html/minfi.html
 
+Island/Promoter Mapping Files: https://sourceforge.net/projects/cohcap/files/additional_Bioconductor_annotations.zip
+- Strictly speaking, "promoter" can include probes downstream of TSS (such as 1st exon)
+
 ### Parameter Values ###
 | Parameter | Value|
 |---|---|
@@ -16,3 +19,5 @@ minfi: http://bioconductor.org/packages/release/bioc/html/minfi.html
 |sample_description_file|Name of Sample Description File|
 |beta_prefix|Table of beta values will be called *[beta_prefix]_[beta.normalization].txt*|
 |beta_normalization|Normalization used to derive beta values.  Can be "illumina", "funnorm", or "noob"|
+|island_mapping|Maps probeIDs to location, gene, and island|
+|promoter_mapping|Maps probeIDs to location, gene, and promoter|
