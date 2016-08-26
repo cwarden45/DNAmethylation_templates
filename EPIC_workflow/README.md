@@ -32,7 +32,7 @@ Most results will be provided in the current working directory of the script.
 |sample_description_file|Name of Sample Description File|
 |Result_Folder|Path to output folder for selected, final results|
 |beta_prefix|Table of beta values will be called *[beta_prefix]_[beta.normalization].txt*; Default = "minfi"|
-|beta_normalization|Normalization used to derive beta values.  Can be "illumina", "funnorm", or "noob"; Default = "illumina"|
+|beta_normalization|Normalization used to derive beta values.  Can be "illumina", "funnorm", or "noob"|
 |island_mapping|Maps probeIDs to location, gene, and island|
 |promoter_mapping|Maps probeIDs to location, gene, and promoter|
 |cluster_distance| Distance metric for QC dendrogram.  Can be *Euclidean* or *Pearson_Dissimilarity*|
