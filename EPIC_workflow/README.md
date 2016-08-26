@@ -10,6 +10,8 @@ or
 
 3b) run_custom_DMR.R
 
+Most results will be provided in the current working directory of the script.
+
 ### Dependencies (some optional) ###
 
 **minfi**: http://bioconductor.org/packages/release/bioc/html/minfi.html
@@ -27,7 +29,6 @@ or
 |plot_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to plot multiple groups|
 |dmr_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to include multiple variables (for multivariate model or gene list filtering)|
 |sample_description_file|Name of Sample Description File|
-|Raw_Code_PC|Path to output folder for most results|
 |Result_Folder|Path to output folder for selected, final results|
 |beta_prefix|Table of beta values will be called *[beta_prefix]_[beta.normalization].txt*; Default = "minfi"|
 |beta_normalization|Normalization used to derive beta values.  Can be "illumina", "funnorm", or "noob"; Default = "illumina"|
