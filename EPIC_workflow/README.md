@@ -14,10 +14,10 @@ or
 
 **minfi**: http://bioconductor.org/packages/release/bioc/html/minfi.html
 
-Island/Promoter Mapping Files: https://sourceforge.net/projects/cohcap/files/additional_Bioconductor_annotations.zip
+**Island/Promoter Mapping Files**: https://sourceforge.net/projects/cohcap/files/additional_Bioconductor_annotations.zip
 - Strictly speaking, "promoter" can include probes downstream of TSS (such as 1st exon)
 
-COHCAP: https://bioconductor.org/packages/release/bioc/html/COHCAP.html
+**COHCAP**: https://bioconductor.org/packages/release/bioc/html/COHCAP.html
 -Currently, need to download source and install devel version locally: https://bioconductor.org/packages/devel/bioc/html/COHCAP.html
 
 ### Parameter Values ###
