@@ -22,6 +22,8 @@ Most results will be provided in the current working directory of the script.
 **COHCAP**: https://bioconductor.org/packages/release/bioc/html/COHCAP.html
 -Currently, need to download source and install devel version locally: https://bioconductor.org/packages/devel/bioc/html/COHCAP.html
 
+**RColorBrewer**: https://cran.r-project.org/web/packages/RColorBrewer/
+
 ### Parameter Values ###
 | Parameter | Value|
 |---|---|
