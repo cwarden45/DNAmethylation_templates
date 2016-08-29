@@ -39,6 +39,14 @@ Most results will be provided in the current working directory of the script.
 |promoter_mapping|Maps probeIDs to location, gene, and promoter|
 |cluster_distance| Distance metric for QC dendrogram.  Can be *Euclidean* or *Pearson_Dissimilarity*|
 |treatment_group|Treatment group for primary variable; enter *continuous* for a continuous variable and a correlation will be provided|
+|site_pvalue|Maximum p-value for filtering CpG sites|
+|site_fdr|Maximum p-value for filtering CpG sites|
+|site_delta_beta|Absolute value of minimum delta-beta value for filtering CpG sites|
+|methyl_site|Threshold for identifying a site/island as methylated|
+|unmethyl_site|Threshold for identifying a site/island as unmethylated|
+|island_pvalue|Maximum p-value for filtering CpG sites|
+|island_fdr|Maximum p-value for filtering CpG sites|
+|island_delta_beta|Absolute value of minimum delta-beta value for filtering CpG sites|
 |COHCAP_output_format|Either "xls" or "txt"|
 |COHCAP_num_groups|Number of groups for COHCAP workflow|
 |COHCAP_paired|Should COHCAP look for a second variable to consider sample pairing?|
