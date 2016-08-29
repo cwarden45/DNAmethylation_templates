@@ -42,8 +42,8 @@ Most results will be provided in the current working directory of the script.
 |site_pvalue|Maximum p-value for filtering CpG sites|
 |site_fdr|Maximum p-value for filtering CpG sites|
 |site_delta_beta|Absolute value of minimum delta-beta value for filtering CpG sites|
-|methyl_site|Threshold for identifying a site/island as methylated|
-|unmethyl_site|Threshold for identifying a site/island as unmethylated|
+|methyl_cutoff|Threshold for identifying a site/island as methylated|
+|unmethyl_cutoff|Threshold for identifying a site/island as unmethylated|
 |island_pvalue|Maximum p-value for filtering CpG sites|
 |island_fdr|Maximum p-value for filtering CpG sites|
 |island_delta_beta|Absolute value of minimum delta-beta value for filtering CpG sites|
