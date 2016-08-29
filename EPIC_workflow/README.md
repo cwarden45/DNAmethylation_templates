@@ -4,9 +4,9 @@
 
 2) qc.R
 
-3a) run_COHCAP.R
+3a) run_COHCAP_island.R or run_COHCAP_site.R (true templates - does not use parameter file)
 
-or
+OR
 
 3b) run_custom_DMR.R
 
@@ -38,4 +38,4 @@ Most results will be provided in the current working directory of the script.
 |island_mapping|Maps probeIDs to location, gene, and island|
 |promoter_mapping|Maps probeIDs to location, gene, and promoter|
 |cluster_distance| Distance metric for QC dendrogram.  Can be *Euclidean* or *Pearson_Dissimilarity*|
-|treatment_group|Treatment group for primary variable; enter *continuous* for a continuous variable and a correlation will be provided
+|treatment_group|Treatment group for primary variable; enter *continuous* for a continuous variable and a correlation will be provided|
