@@ -40,4 +40,7 @@ Most results will be provided in the current working directory of the script.
 |cluster_distance| Distance metric for QC dendrogram.  Can be *Euclidean* or *Pearson_Dissimilarity*|
 |treatment_group|Treatment group for primary variable; enter *continuous* for a continuous variable and a correlation will be provided|
 |COHCAP_output_format|Either "xls" or "txt"|
+|COHCAP_num_groups|Number of groups for COHCAP workflow|
+|COHCAP_paired|Should COHCAP look for a second variable to consider sample pairing?|
+|wig_types|Can be set to "avg" (group level and delta-beta, for 2-groups), "sample" (separate .wig file per sample", "avg.plus.sample", or "none"
 |expression_file|If integrating with gene expression, table of values formatted for appropriate workflow.  Otherwise, "NULL"|
