@@ -4,7 +4,7 @@
 
 2) qc.R
 
-3a) run_COHCAP_island.R or run_COHCAP_site.R (true templates - does not use parameter file)
+3a) run_COHCAP.R
 
 OR
 
