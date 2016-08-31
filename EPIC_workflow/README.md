@@ -49,6 +49,7 @@ Most results will be provided in the current working directory of the script.
 |island_delta_beta|Absolute value of minimum delta-beta value for filtering CpG sites|
 |COHCAP_output_format|Either "xls" or "txt"|
 |COHCAP_num_groups|Number of groups for COHCAP workflow|
+|min_sites_per_island|Minimum number of probes to for differentially methylated island/promoter|
 |COHCAP_paired|Should COHCAP look for a second variable to consider sample pairing?|
 |wig_types|Can be set to "avg" (group level and delta-beta, for 2-groups), "sample" (separate .wig file per sample", "avg.plus.sample", or "none"
 |expression_file|If integrating with gene expression, table of values formatted for appropriate workflow.  Otherwise, "NULL"|
