@@ -44,8 +44,11 @@ if(trt.group == "continuous"){
 			stop("Reconsider design: You specified 2 groups, but provide more than 2 groups")
 		}
 	} else{
-		print(levels(as.factor(dmr.cols[[1]])))
-		stop("Need to write code for creating 2-var group file")
+		grp.levels = levels(as.factor(dmr.cols[[1]]))
+		ref = grp.levels[grp.levels != trt.group]
+		if ((length(ref) != 1)&(num.groups==2)){
+			stop("Reconsider design: You specified 2 groups, but provide more than 2 groups")
+		}
 	}
 }#end else
 
