@@ -1,16 +1,14 @@
 param.table = read.table("parameters.txt", header=T, sep="\t")
-description.file = as.character(param.table$Value[param.table$Parameter == "sample_description_file"])
 beta.prefix  = as.character(param.table$Value[param.table$Parameter == "beta_prefix"])
 beta.normalization  = as.character(param.table$Value[param.table$Parameter == "beta_normalization"])
 sample.description.file = as.character(param.table$Value[param.table$Parameter == "sample_description_file"])
 
 library("minfi")
 
-sample.table = read.table(sample.description.file, sep="\t", header=T)
-sampleID = paste(sample.table$Sentrix_ID, sample.table$Sentrix_Position, sep="_")
-userID = as.character(sample.table$userID)
+meta.table = read.table(sample.description.file, sep="\t", header=T)
+sampleID = paste(meta.table$Sentrix_ID, meta.table$Sentrix_Position, sep="_")
+userID = as.character(meta.table$userID)
 
-meta.table = read.table(description.file, head=T, sep="\t")
 RG.raw = read.metharray(basenames=meta.table$Base)
 
 if (beta.normalization == "illumina"){
