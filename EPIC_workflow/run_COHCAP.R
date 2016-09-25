@@ -18,6 +18,7 @@ site.delta.beta = as.numeric(as.character(param.table$Value[param.table$Paramete
 island.pvalue = as.numeric(as.character(param.table$Value[param.table$Parameter == "island_pvalue"]))
 island.fdr = as.numeric(as.character(param.table$Value[param.table$Parameter == "island_fdr"]))
 island.delta.beta = as.numeric(as.character(param.table$Value[param.table$Parameter == "island_delta_beta"]))
+max.cluster.dist = as.numeric(as.character(param.table$Value[param.table$Parameter == "max_cluster_dist"]))
 sites.per.island = as.numeric(as.character(param.table$Value[param.table$Parameter == "min_sites_per_island"]))
 methyl.threshold = as.numeric(as.character(param.table$Value[param.table$Parameter == "methyl_cutoff"]))
 unmethyl.threshold = as.numeric(as.character(param.table$Value[param.table$Parameter == "unmethyl_cutoff"]))
@@ -73,7 +74,8 @@ filtered.sites = COHCAP.site(COHCAP.sample.file, beta.table, promoter.project, p
 promoter.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.table, promoter.project,
 									project.folder, methyl.cutoff=methyl.threshold, unmethyl.cutoff = unmethyl.threshold,
 									delta.beta.cutoff = island.delta.beta, pvalue.cutoff=island.pvalue, fdr.cutoff=island.fdr,
-									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE,
+									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE, plot.heatmap =TRUE,
+				     					max.cluster.dist=max.cluster.dist,
 									paired=eval(parse(text=pair.var)), ref=ref,	output.format = output.format)						
 
 								
@@ -93,6 +95,7 @@ filtered.sites = COHCAP.site(COHCAP.sample.file, beta.table, island.project, pro
 island.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.table, island.project,
 									project.folder, methyl.cutoff=methyl.threshold, unmethyl.cutoff = unmethyl.threshold,
 									delta.beta.cutoff = island.delta.beta, pvalue.cutoff=island.pvalue, fdr.cutoff=island.fdr,
-									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE,
+									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE, plot.heatmap =TRUE,
+				   					max.cluster.dist=max.cluster.dist,
 									paired=eval(parse(text=pair.var)), ref=ref,	output.format = output.format)						
 unlink(COHCAP.sample.file)
