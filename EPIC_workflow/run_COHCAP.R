@@ -77,8 +77,9 @@ promoter.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.ta
 									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE, plot.heatmap =TRUE,
 				     					max.cluster.dist=max.cluster.dist,
 									paired=eval(parse(text=pair.var)), ref=ref,	output.format = output.format)						
+#promoter results likely sufficient
+stop()	
 
-								
 print("Island DMR")
 island.project = paste("CpG_Island_",project.name,sep="")
 beta.table = COHCAP.annotate(beta.file, island.project, project.folder,
