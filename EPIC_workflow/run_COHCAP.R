@@ -57,7 +57,11 @@ COHCAP.sample.table = data.frame(userID,dmr.cols)
 COHCAP.sample.file = paste(paste(dmr.vars,collapse="_"),"_COHCAP_samples.txt",sep="")
 write.table(COHCAP.sample.table, COHCAP.sample.file,
 			col.names=F, row.names=F, sep="\t", quote=F)
-			
+
+if(pair.var != "continuous"){
+	pair.var = eval(parse(text=pair.var))
+}	
+
 print("Promoter DMR")
 promoter.project = paste("Promoter_",project.name,sep="")
 beta.table = COHCAP.annotate(beta.file, promoter.project, project.folder,
@@ -68,7 +72,7 @@ filtered.sites = COHCAP.site(COHCAP.sample.file, beta.table, promoter.project, p
 								methyl.cutoff=methyl.threshold, unmethyl.cutoff=unmethyl.threshold,
 								delta.beta = site.delta.beta,
 								pvalue.cutoff = site.pvalue, fdr.cutoff=site.fdr,
-								create.wig = wig.output, paired=eval(parse(text=pair.var)),
+								create.wig = wig.output, paired=pair.var,
 								num.groups=num.groups, output.format = output.format)
 
 promoter.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.table, promoter.project,
@@ -76,7 +80,7 @@ promoter.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.ta
 									delta.beta.cutoff = island.delta.beta, pvalue.cutoff=island.pvalue, fdr.cutoff=island.fdr,
 									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE, plot.heatmap =TRUE,
 				     					max.cluster.dist=max.cluster.dist,
-									paired=eval(parse(text=pair.var)), ref=ref,	output.format = output.format)						
+									paired=pair.var, ref=ref, output.format = output.format)						
 #promoter results likely sufficient
 stop()	
 
@@ -90,7 +94,7 @@ filtered.sites = COHCAP.site(COHCAP.sample.file, beta.table, island.project, pro
 								methyl.cutoff=methyl.threshold, unmethyl.cutoff=unmethyl.threshold,
 								delta.beta = site.delta.beta,
 								pvalue.cutoff = site.pvalue, fdr.cutoff=site.fdr,
-								create.wig = wig.output, paired=eval(parse(text=pair.var)),
+								create.wig = wig.output, paired=pair.var,
 								num.groups=num.groups, output.format = output.format)
 
 island.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.table, island.project,
@@ -98,5 +102,5 @@ island.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.tabl
 									delta.beta.cutoff = island.delta.beta, pvalue.cutoff=island.pvalue, fdr.cutoff=island.fdr,
 									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE, plot.heatmap =TRUE,
 				   					max.cluster.dist=max.cluster.dist,
-									paired=eval(parse(text=pair.var)), ref=ref,	output.format = output.format)						
+									paired=pair.var, ref=ref, output.format = output.format)						
 unlink(COHCAP.sample.file)
