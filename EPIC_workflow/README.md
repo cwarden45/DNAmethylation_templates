@@ -1,14 +1,10 @@
 ### Order to Run Scripts ###
 
-1) minfi_preprocess.R
+1) `minfi_preprocess.R`
 
-2) qc.R
+2) `qc.R`
 
-3a) run_COHCAP.R
-
-OR
-
-3b) run_custom_DMR.R
+3) `run_COHCAP.R`
 
 Most results will be provided in the current working directory of the script.
 
