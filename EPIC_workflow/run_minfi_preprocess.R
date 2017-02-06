@@ -13,7 +13,7 @@ RG.raw = read.metharray(basenames=meta.table$Base)
 
 if (beta.normalization == "illumina"){
 	methyl.norm = preprocessIllumina(RG.raw, bg.correct = TRUE, normalize = "controls", reference = 1)
-	beta.table = getBeta(methyl.norm)
+	beta.table = round(getBeta(methyl.norm), digits=2)
 	beta.table = beta.table[,match(sampleID, colnames(beta.table))]
 	probes = rownames(beta.table)
 	colnames(beta.table) = userID
@@ -23,7 +23,7 @@ if (beta.normalization == "illumina"){
 	write.table(output.table, file=beta.file, sep="\t", quote=F, row.names=F)
 } else if (beta.normalization == "funnorm"){
 	methyl.norm = preprocessFunnorm(RG.raw, nPCs=2, sex = NULL, bgCorr = TRUE, dyeCorr = TRUE)
-	beta.table = getBeta(methyl.norm)
+	beta.table = round(getBeta(methyl.norm), digits=2)
 	beta.table = beta.table[,match(sampleID, colnames(beta.table))]
 	probes = rownames(beta.table)
 	colnames(beta.table) = userID
@@ -33,7 +33,7 @@ if (beta.normalization == "illumina"){
 	write.table(output.table, file=beta.file, sep="\t", quote=F, row.names=F)
 } else if (beta.normalization == "noob"){
 	methyl.norm = preprocessNoob(RG.raw, offset = 15, dyeCorr = TRUE)
-	beta.table = getBeta(methyl.norm)
+	beta.table = round(getBeta(methyl.norm), digits=2)
 	beta.table = beta.table[,match(sampleID, colnames(beta.table))]
 	probes = rownames(beta.table)
 	colnames(beta.table) = userID
