@@ -64,7 +64,7 @@ if(pair.var != "continuous"){
 	pair.var = eval(parse(text=pair.var))
 }	
 
-print("Promoter DMR")
+print("Promoter + 1st Exon Annotations")
 promoter.project = paste("Promoter_",project.name,sep="")
 beta.table = COHCAP.annotate(beta.file, promoter.project, project.folder,
 								platform="custom", annotation.file = gene.mapping,
@@ -86,7 +86,7 @@ promoter.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.ta
 #promoter results likely sufficient
 stop()	
 
-print("Island DMR")
+print("UCSC Island Annotations")
 island.project = paste("CpG_Island_",project.name,sep="")
 beta.table = COHCAP.annotate(beta.file, island.project, project.folder,
 								platform="custom", annotation.file = island.mapping,
