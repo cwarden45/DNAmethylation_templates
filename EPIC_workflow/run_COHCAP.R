@@ -53,8 +53,10 @@ if(trt.group == "continuous"){
 	}
 }#end else
 
-COHCAP.sample.table = data.frame(userID,dmr.cols)
-COHCAP.sample.file = paste(paste(dmr.vars,collapse="_"),"_COHCAP_samples.txt",sep="")
+rownames(dmr.cols) = userID
+dmr.cols = na.omit(dmr.cols)
+COHCAP.sample.table = data.frame(userID=rownames(dmr.cols),dmr.cols)
+COHCAP.sample.file = paste(project.folder,"/",paste(dmr.vars,collapse="_"),"_COHCAP_samples.txt",sep="")
 write.table(COHCAP.sample.table, COHCAP.sample.file,
 			col.names=F, row.names=F, sep="\t", quote=F)
 
