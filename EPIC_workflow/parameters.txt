@@ -25,4 +25,4 @@ island_pvalue	0.05
 island_fdr	0.05
 island_delta_beta	0.2
 min_sites_per_island	4
-max_cluster_dist  50
+max_cluster_dist  200
