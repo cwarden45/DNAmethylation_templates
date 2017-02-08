@@ -16,7 +16,7 @@ Most results will be provided in the current working directory of the script.
 - Please note that "promoter" includes probes downstream of TSS (in 1st exon)
 
 **COHCAP**: https://bioconductor.org/packages/release/bioc/html/COHCAP.html
--While some functionality is in the release version, need probably need to download source and install devel version locally: https://bioconductor.org/packages/devel/bioc/html/COHCAP.html
+- While some functionality is in the release version, need probably need to download source and install devel version locally: https://bioconductor.org/packages/devel/bioc/html/COHCAP.html
 
 **RColorBrewer**: https://cran.r-project.org/web/packages/RColorBrewer/
 
