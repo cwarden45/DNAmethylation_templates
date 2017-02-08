@@ -98,4 +98,4 @@ There are still no differentially methylated islands at FDR < 0.05 (or even unad
 filtered.islands = COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1, fdr.cutoff=1, num.sites=2)
 ```
 
-Now, COHCAP identifes 57 differentially methylted regions with an unadjusted p-value < 0.05.  If you leave the FDR filter at 0.05, there are still no false positives identifed at the island-level (but I wouldn't setting the minimum number of sites per island below 4).
+Now, COHCAP identifes 57 differentially methylated regions with an unadjusted p-value < 0.05.  If you leave the FDR filter at 0.05, there are still no false positives identifed at the island-level (but I wouldn't setting the minimum number of sites per island below 4).
