@@ -53,12 +53,21 @@ if(trt.group == "continuous"){
 	}
 }#end else
 
-rownames(dmr.cols) = userID
-dmr.cols = na.omit(dmr.cols)
-COHCAP.sample.table = data.frame(userID=rownames(dmr.cols),dmr.cols)
-COHCAP.sample.file = paste(project.folder,"/",paste(dmr.vars,collapse="_"),"_COHCAP_samples.txt",sep="")
-write.table(COHCAP.sample.table, COHCAP.sample.file,
-			col.names=F, row.names=F, sep="\t", quote=F)
+if(is.null(dim(dmr.cols))){
+	names(dmr.cols) = userID
+	dmr.cols = dmr.cols[!is.na(dmr.cols)]
+	COHCAP.sample.table = data.frame(userID=names(dmr.cols),dmr.cols)
+	COHCAP.sample.file = paste(project.folder,"/",paste(dmr.vars,collapse="_"),"_COHCAP_samples.txt",sep="")
+	write.table(COHCAP.sample.table, COHCAP.sample.file,
+				col.names=F, row.names=F, sep="\t", quote=F)
+}else{
+	rownames(dmr.cols) = userID
+	dmr.cols = na.omit(dmr.cols)
+	COHCAP.sample.table = data.frame(userID=rownames(dmr.cols),dmr.cols)
+	COHCAP.sample.file = paste(project.folder,"/",paste(dmr.vars,collapse="_"),"_COHCAP_samples.txt",sep="")
+	write.table(COHCAP.sample.table, COHCAP.sample.file,
+				col.names=F, row.names=F, sep="\t", quote=F)
+}
 
 if(pair.var != "continuous"){
 	pair.var = eval(parse(text=pair.var))
