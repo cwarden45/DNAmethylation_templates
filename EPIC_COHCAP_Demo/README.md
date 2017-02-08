@@ -37,9 +37,9 @@ write.table(output.table, file=beta.file, sep="\t", quote=F, row.names=F)
 ```
 library(COHCAP)
 island.file = "additional_annotations/COHCAP_EPIC_UCSC_TSS1500_plus_1st_Exon.txt"
-sample.file <- "COHCAP_sample_description.txt"
-project.folder <- getwd()
-project.name <- "EPIC_Test"
+sample.file = "COHCAP_sample_description.txt"
+project.folder = getwd()
+project.name = "EPIC_Test"
 
 beta.table <- COHCAP.annotate(beta.file, project.name, project.folder, platform="custom", annotation.file = island.file)
 COHCAP.qc(sample.file, beta.table, project.name, project.folder)
@@ -48,8 +48,8 @@ COHCAP.qc(sample.file, beta.table, project.name, project.folder)
 **6) Filter CpG Differentially Methylated CpG Sites**
 
 ```
-sample.file <- "COHCAP_paired_description.txt"
-filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2")
+sample.file = "COHCAP_paired_description.txt"
+filtered.sites = COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2")
 ```
 
 *NOTE*: I have re-defined the sample.file to compare one replicate against one replicate.  Notice that I don't have to re-annotate the probes in order to run COHCAP on subsets of samples (just use a different sample description file)
@@ -57,8 +57,8 @@ filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.fol
 Notice that there are no differentially methylated sites.  This is because we don't have replicates, and COHCAP had default p-value and FDR filters set to 0.05.  Let's try this again, removing the p-value and FDR thresholds (by setting them to 1).
 
 ```
-project.name <- "EPIC_Test_v2"
-filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2", fdr.cutoff=1, pvalue.cutoff=1)
+project.name = "EPIC_Test_v2"
+filtered.sites = COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2", fdr.cutoff=1, pvalue.cutoff=1)
 ```
 
 We can now find 70 differentially methylated sites (with no p-value or FDR filters)
@@ -66,7 +66,7 @@ We can now find 70 differentially methylated sites (with no p-value or FDR filte
 **7) Identify Differentially Methylated Regions**
 
 ```
-filtered.islands <- COHCAP.avg.by.site(filtered.sites, project.name, project.folder)
+filtered.islands = COHCAP.avg.by.site(filtered.sites, project.name, project.folder)
 ```
 
 While we saw false positives at the site level, there are no differentially methylated regions.  Since these are repliates, that is good!
@@ -77,9 +77,9 @@ While we saw false positives at the site level, there are no differentially meth
 Just out of curiousity, let's see what happens when we set both the methylated and unmethylated thresholds to 0.3 (which is what I would recommend for clinical samples that show more heterogeniety than cell-line experiments)
 
 ```
-project.name <- "EPIC_Test_v3"
-filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2", fdr.cutoff=1, pvalue.cutoff=1, methyl.cutoff=0.3)
-filtered.islands <- COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0.3)
+project.name = "EPIC_Test_v3"
+filtered.sites = COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2", fdr.cutoff=1, pvalue.cutoff=1, methyl.cutoff=0.3)
+filtered.islands = COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0.3)
 ```
 
 Now, we go from identifying 450 CpG sites to 0 differentially methylated islands.  Again, remember there should be no real differences, so defining methylation differences at the region level is less sensitive to noise than the site-level analysis.
@@ -87,15 +87,15 @@ Now, we go from identifying 450 CpG sites to 0 differentially methylated islands
 Let's keep trying to get COHCAP to find a false positive at the differentially methylation region level, by decreasing the delta-beta threshold and getting rid of the methylated and unmethylated cutoffs
 
 ```
-project.name <- "EPIC_Test_v4"
-filtered.sites <- COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2", fdr.cutoff=1, pvalue.cutoff=1, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1)
-filtered.islands <- COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1, fdr.cutoff=1)
+project.name = "EPIC_Test_v4"
+filtered.sites = COHCAP.site(sample.file, beta.table, project.name, project.folder, ref="rep2", fdr.cutoff=1, pvalue.cutoff=1, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1)
+filtered.islands = COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1, fdr.cutoff=1)
 ```
 
 There are still no differentially methylated islands at FDR < 0.05 (or even unadjusted p-value < 0.05 - notice the code above gets rid of the FDR requirement).  However, the number of sites per island is an important paramter (by default it is set to a minimum of four sites per island).  The code below changes that requriement to 2 sites per island.
 
 ```
-filtered.islands <- COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1, fdr.cutoff=1, num.sites=2)
+filtered.islands = COHCAP.avg.by.site(filtered.sites, project.name, project.folder, methyl.cutoff=0, unmethyl.cutoff=1, delta.beta = 0.1, fdr.cutoff=1, num.sites=2)
 ```
 
 Now, COHCAP identifes 57 differentially methylted regions with an unadjusted p-value < 0.05.  If you leave the FDR filter at 0.05, there are still no false positives identifed at the island-level (but I wouldn't setting the minimum number of sites per island below 4).
