@@ -1,6 +1,6 @@
 ### Order to Run Scripts ###
 
-1) `minfi_preprocess.R`
+1) `minfi_preprocess.R` or `reformat_GenomeStudio_Pval_01.R`
 
 2) `qc.R`
 
