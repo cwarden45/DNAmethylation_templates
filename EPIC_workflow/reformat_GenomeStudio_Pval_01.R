@@ -12,18 +12,6 @@ parameterFile = "parameters_GenomeStudio.txt"
 #The region-mapping doesn't matter for this script,
 #	but it is something that you might want to consider when running COHCAP
 
-percent.na = function(arr){
-	return(100*length(arr[is.na(arr)])/length(arr))
-}
-
-quantile.chr = function(arr, grps){
-	return(unlist(tapply(arr,grps, quantile, na.rm = TRUE)))
-}
-
-na.chr = function(arr, grps){
-	return(unlist(tapply(arr,grps, percent.na)))
-}
-
 param.table = read.table(parameterFile, header=T, sep="\t")
 beta.prefix  = as.character(param.table$Value[param.table$Parameter == "beta_prefix"])
 beta.normalization  = as.character(param.table$Value[param.table$Parameter == "beta_normalization"])
