@@ -1,1 +1,1 @@
-SampleID  Sentrix_ID  Sentrix_Position  Base	Group
+SampleID  userID  Sentrix_ID  Sentrix_Position  Base	Group
