@@ -41,7 +41,8 @@ probes.percent.detected = 100*apply(normalized.mat, 1, count.defined.values) / n
 print(dim(normalized.mat))
 normalized.mat = normalized.mat[probes.percent.detected == 100,]
 print(dim(normalized.mat))
-percent.detected = data.frame(Sample = userID, Percent.Detected=samples.percent.detected)
+percent.detected = data.frame(Sample = userID,
+				Percent.Detected=paste(round(samples.percent.detected, digits=2),"%",sep=""))
 write.table(percent.detected, paste(beta.prefix,beta.normalization,"percent_detected.txt",sep="_"),sep="\t", quote=F, row.names=F)
 
 quantiles = round(apply(normalized.mat, 2, quantile, na.rm=TRUE, probs=c(0.01,0.05,0.25,0.5,0.75,0.95,0.99)), digits=2)
