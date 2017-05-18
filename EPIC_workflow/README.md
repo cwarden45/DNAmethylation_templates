@@ -12,6 +12,8 @@ Most results will be provided in the current working directory of the script.
 
 **minfi**: http://bioconductor.org/packages/release/bioc/html/minfi.html
 
+**BMIQ Normalization**:https://code.google.com/archive/p/bmiq/
+
 **Island/Promoter Mapping Files**: https://sourceforge.net/projects/cohcap/files/additional_Bioconductor_annotations.zip
 - Please note that "promoter" includes probes downstream of TSS (in 1st exon and 5'UTR)
 
