@@ -1,7 +1,7 @@
 #Export Group beta values, defining each array as a group
-FinalReport = "GenomeStudio_Files/FinalReport.txt"
+FinalReport = "../GenomeStudio_Files/FinalReport.txt"
 
-parameterFile = "parameters_GenomeStudio.txt"
+parameterFile = "parameters.txt"
 
 ###### Should be able to just edit text above this line ######
 
@@ -36,6 +36,9 @@ meta.table = read.table(sample.description.file,head=T, sep="\t")
 
 sample.label = meta.table$userID[match(colnames(filtered.beta.mat),paste("X",meta.table$Sentrix_ID,"_",meta.table$Sentrix_Position,".AVG_Beta",sep=""))]
 colnames(filtered.beta.mat) = sample.label
+
+#re-order columns
+filtered.beta.mat = filtered.beta.mat[,match(meta.table$userID,sample.label)]
 
 print("Writing COHCAP beta file to text")
 beta.file = paste(beta.prefix,"_",beta.normalization,".txt",sep="")
