@@ -73,12 +73,13 @@ if(pair.var != "continuous"){
 	pair.var = eval(parse(text=pair.var))
 }	
 
-print("Promoter + 1st Exon Annotations")
+print("Promoter to 1st Exon Annotations")
 promoter.project = paste("Promoter_",project.name,sep="")
 beta.table = COHCAP.annotate(beta.file, promoter.project, project.folder,
 								platform="custom", annotation.file = gene.mapping,
 								output.format = output.format)
-								
+
+print("Promoter to 1st Exon Differentially Methylated Sites")
 filtered.sites = COHCAP.site(COHCAP.sample.file, beta.table, promoter.project, project.folder, ref=ref,
 								methyl.cutoff=methyl.threshold, unmethyl.cutoff=unmethyl.threshold,
 								delta.beta = site.delta.beta,
@@ -86,12 +87,23 @@ filtered.sites = COHCAP.site(COHCAP.sample.file, beta.table, promoter.project, p
 								create.wig = wig.output, paired=pair.var,
 								num.groups=num.groups, output.format = output.format)
 
+print("Promoter to 1st Exon Differentially Methylated Regions")
 promoter.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.table, promoter.project,
 									project.folder, methyl.cutoff=methyl.threshold, unmethyl.cutoff = unmethyl.threshold,
 									delta.beta.cutoff = island.delta.beta, pvalue.cutoff=island.pvalue, fdr.cutoff=island.fdr,
 									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE, plot.heatmap =TRUE,
 				     					max.cluster.dist=max.cluster.dist,
-									paired=pair.var, ref=ref, output.format = output.format)						
+									paired=pair.var, ref=ref, output.format = output.format)
+if(expression.file != "NULL"){
+	print("Promoter to 1st Exon Integration with Gene Expression Data")
+	COHCAP.integrate.avg.by.island(island.list=promoter.list, project.name=promoter.project,
+							project.folder=project.folder, expr.file=expression.file,
+							sample.file=COHCAP.sample.file, cor.pvalue.cutoff=0.05,
+							cor.fdr.cutoff=0.05, cor.cutoff=-0.2, plot.scatter=T,
+							output.format = output.format)												
+	
+}#end if(expression.file != "NULL")
+
 #promoter results likely sufficient
 stop()	
 
