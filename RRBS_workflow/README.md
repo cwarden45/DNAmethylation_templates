@@ -37,6 +37,7 @@ Most results will be provided in the current working directory of the script.
 |Threads|Number of Threads for Bismark Alignment|
 |Cluster_Email|If running alignment on a cluster, e-mail for notifications|
 |Quantification_Method|Method for quantifying percent methylation / counts (can be *Bismark* or *methylKit*)|
+|methyl_percent_prefix|Table of percent methylation values will be called *[methyl_percent_prefix]_[Quantification_Method].txt*|
 |aligned_stats_file|Name of File to Contain Aligned Read Counts and Bismark Coverage Files (if applicable)|
 |Min_Coverage|Minimum Coverage to Analyze Percent Methylation|
 
