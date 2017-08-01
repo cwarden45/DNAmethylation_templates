@@ -15,6 +15,7 @@ my $trim_galore_path = "";
 my $Bismark_path = "";
 my $min_length = "";
 my $cov_cutoff = "";
+my $quant_method = "";
 my $job_count = 0;
 
 open(PARAM, $parameter_file)||die("Cannot open $parameter_file\n");
@@ -54,12 +55,17 @@ while(<PARAM>){
 			$min_length=$value;
 		}elsif($param eq "Min_Coverage"){
 			$cov_cutoff=$value;
+		}elsif($param eq "Quantification_Method"){
+			$quant_method=$value;
 		}
 		
 	}#end if($line_count > 1)
 }#end while(<PARAM>)
 
 close(PARAM);
+
+if(($quant_method eq "")||($quant_method eq "[[required]]")){
+	die("Need to enter a value for 'Quantification_Method'!\n");
 
 if(($ref eq "")||($ref eq "[[required]]")){
 	die("Need to enter a value for 'Bismark_Ref'!\n");
@@ -158,22 +164,24 @@ foreach my $file (@files){
 				exit;
 			}
 			
-			#methylation calls and summary
-			#counts are in .bismark.cov file
-			my $bismarkBam = "$outputfolder/$tg_prefix\_val_1_bismark_bt2_pe.bam";
-			print OUT "$Bismark_path/bismark_methylation_extractor -o $outputfolder --buffer_size 10G --comprehensive --bedGraph --counts --no_overlap --report --genome_folder $ref -p $bismarkBam\n";
+			if($quant_method eq "Bismark"){
+				#methylation calls and summary
+				#counts are in .bismark.cov file
+				print OUT "$Bismark_path/bismark_methylation_extractor -o $outputfolder --buffer_size 10G --comprehensive --bedGraph --counts --no_overlap --report --genome_folder $ref -p $bismarkBam\n";
+
+				#remove other files
+				print OUT "rm $outputfolder/CHG_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
+				print OUT "rm $outputfolder/CHH_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
+				print OUT "rm $outputfolder/CpG_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";				
+			}
 			
-			#sort and index bam for visualization
+			#sort and index bam for visualization and/or methylKit quantification
 			my $sortPrefix = $userBam;
 			$sortPrefix =~ s/.bam$//g;
 			print OUT "samtools sort $bismarkBam $sortPrefix\n";
 			print OUT "samtools index $userBam\n";
 			
-			#remove other files and compress reads
-			print OUT "rm $outputfolder/CHG_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			print OUT "rm $outputfolder/CHH_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			print OUT "rm $outputfolder/CpG_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			
+			#compress reads
 			print OUT "gzip $read1\n";
 			print OUT "gzip $read2\n";
 
