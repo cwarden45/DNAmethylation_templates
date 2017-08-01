@@ -41,6 +41,7 @@ Most results will be provided in the current working directory of the script.
 |aligned_stats_file|Name of File to Contain Aligned Read Counts and Bismark Coverage Files (if applicable)|
 |Min_Coverage|Minimum Coverage to Analyze Percent Methylation|
 |genome|Name of genome build|
+|Read_Pairing|Are you using single-end (*SE*) or paired-end (*PE*) reads?|
 
 |comp_name | Name of differential methylation comparison (used to name output file)
 |plot_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to plot multiple groups|
