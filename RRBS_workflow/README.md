@@ -1,10 +1,10 @@
 ### Order to Run Scripts ###
 
-1) `cluster_align_PE_Bismark.pl`
+1) `cluster_align_PE_Bismark.pl` (and, optionally, `run_methyKit.R`)
 
-2)
+2) `collect_alignment_stats.pl`
 
-3)
+3) `percent_methylation_table.R`
 
 4) `qc.R`
 
@@ -36,6 +36,7 @@ Most results will be provided in the current working directory of the script.
 |Strand|Library type. Can be *no*, *yes*, or *reverse*.|
 |Threads|Number of Threads for Bismark Alignment|
 |Cluster_Email|If running alignment on a cluster, e-mail for notifications|
+|Quantification_Method|Method for quantifying percent methylation / counts (can be *Bismark* or *methylKit*)|
 |Min_Coverage|Minimum Coverage to Analyze Percent Methylation|
 
 |comp_name | Name of differential methylation comparison (used to name output file)
