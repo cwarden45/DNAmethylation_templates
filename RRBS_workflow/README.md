@@ -40,6 +40,7 @@ Most results will be provided in the current working directory of the script.
 |methyl_percent_prefix|Table of percent methylation values will be called *[methyl_percent_prefix]_[Quantification_Method].txt*|
 |aligned_stats_file|Name of File to Contain Aligned Read Counts and Bismark Coverage Files (if applicable)|
 |Min_Coverage|Minimum Coverage to Analyze Percent Methylation|
+|genome|Name of genome build|
 
 |comp_name | Name of differential methylation comparison (used to name output file)
 |plot_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to plot multiple groups|
