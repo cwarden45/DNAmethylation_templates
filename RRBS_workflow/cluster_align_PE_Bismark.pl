@@ -157,11 +157,11 @@ foreach my $file (@files){
 				print "Make rule for strand $strand_type\n";
 				exit;
 			}
-			#methylation calls and summary
-			my $bismarkBam = "$outputfolder/$tg_prefix\_val_1_bismark_bt2_pe.bam";
 			
-			#apply coverage cutoff in later scripts (and/or use methylKit percentages) --> using here seems to override --counts parameter
-			print OUT "$Bismark_path/bismark_methylation_extractor -o $outputfolder --buffer_size 10G --bedGraph --counts --no_overlap --report --genome_folder $ref -p $bismarkBam\n";
+			#methylation calls and summary
+			#counts are in .bismark.cov file
+			my $bismarkBam = "$outputfolder/$tg_prefix\_val_1_bismark_bt2_pe.bam";
+			print OUT "$Bismark_path/bismark_methylation_extractor -o $outputfolder --buffer_size 10G --comprehensive --bedGraph --counts --no_overlap --report --genome_folder $ref -p $bismarkBam\n";
 			
 			#sort and index bam for visualization
 			my $sortPrefix = $userBam;
@@ -170,12 +170,9 @@ foreach my $file (@files){
 			print OUT "samtools index $userBam\n";
 			
 			#remove other files and compress reads
-			print OUT "rm $outputfolder/CHG_OB_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			print OUT "rm $outputfolder/CHG_OT_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			print OUT "rm $outputfolder/CHH_OB_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			print OUT "rm $outputfolder/CHH_OT_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			print OUT "rm $outputfolder/CpG_OB_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
-			print OUT "rm $outputfolder/CpG_OT_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
+			print OUT "rm $outputfolder/CHG_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
+			print OUT "rm $outputfolder/CHH_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
+			print OUT "rm $outputfolder/CpG_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
 			
 			print OUT "gzip $read1\n";
 			print OUT "gzip $read2\n";
