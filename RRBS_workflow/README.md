@@ -1,6 +1,6 @@
 ### Order to Run Scripts ###
 
-1) `cluster_align_PE_Bismark.pl` (and, optionally, `methyKit_preprocess.R`)
+1) `cluster_align_PE_Bismark.pl`
 
 2) `collect_alignment_stats.pl`
 
