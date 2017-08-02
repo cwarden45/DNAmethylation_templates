@@ -174,12 +174,12 @@ foreach my $file (@files){
 				print OUT "rm $outputfolder/CHH_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";
 				print OUT "rm $outputfolder/CpG_context_$tg_prefix\_val_1_bismark_bt2_pe.txt\n";				
 
-				#get strand information
+				#get strand information (but includes all sites, even without coverage)
 				my $cov_file = $bismarkBam;
 				$cov_file =~ s/.bam$/.bismark.cov.gz/;
 				my $stranded_file = $cov_file;
 				$stranded_file =~ s/.cov.gz/.cov.v2.txt/;
-				print OUT "$Bismark_path/coverage2cytosine -o $stranded_file --genome_folder $ref $cov_file\n";
+				#print OUT "$Bismark_path/coverage2cytosine -o $stranded_file --genome_folder $ref $cov_file\n";
 			}
 
 			#sort and index bam for visualization and/or methylKit quantification
