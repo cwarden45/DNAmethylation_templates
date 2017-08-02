@@ -7,8 +7,7 @@ tss.flanking.length = 1500
 
 bed = gsub(".gtf$",paste(".PROMOTER.",tss.flanking.length,"bp.bed",sep=""),gtf)
 
-### ideally, edit above this line 						###
-### warning: this will probably take a few hours to run ###
+### ideally, edit above this line ###
 
 
 extract.id = function(char, id.type){
