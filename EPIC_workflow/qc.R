@@ -1,6 +1,6 @@
-colLab <- function(n, labelColors, clusMember) { 
+colLab = function(n, labelColors, clusMember) { 
    if(is.leaf(n)) { 
-       a <- attributes(n) 
+       a = attributes(n) 
 	   #print(a)
        # clusMember - vector of sample names (ordered to match label color.palette)
        # labelColors - a vector of color.palette for the above grouping 
@@ -11,7 +11,7 @@ colLab <- function(n, labelColors, clusMember) {
    n 
 }
 
-count.defined.values <- function(arr)
+count.defined.values = function(arr)
 {
 	return(length(arr[!is.na(arr)]))
 }#end def count.values
@@ -155,13 +155,13 @@ for (i in 1:length(plot.groups)){
 	par(mar = par("mar") + c(0,0,0,10)) 
 	for (j in 1:ncol(temp.mat))
 		{		
-			data <- as.numeric(t(temp.mat[,j]))
+			data = as.numeric(t(temp.mat[,j]))
 			
 			if(j == 1)
 				{
-					den <- density(data, na.rm=T,from=0, to=1)
-					expr <- den$x
-					freq <- den$y
+					den = density(data, na.rm=T,from=0, to=1)
+					expr = den$x
+					freq = den$y
 					plot(expr, freq, type="l", xlab = paste("Beta Values",sep=""), ylab = "Density",
 							xlim=c(0,1), ylim=c(0,5), col=labelColors[j], main=paste("Color by ",group,sep=""))
 					if(group.type == "continuous"){
@@ -173,9 +173,9 @@ for (i in 1:length(plot.groups)){
 				}#end if(j == 1)
 			else
 				{
-					den <- density(data, na.rm=T,from=0, to=1)
-					expr <- den$x
-					freq <- den$y
+					den = density(data, na.rm=T,from=0, to=1)
+					expr = den$x
+					freq = den$y
 					lines(expr, freq, type = "l", col=labelColors[j])
 				}#end else
 		}#end for (j in 1:length(ncol(temp.mat)))
