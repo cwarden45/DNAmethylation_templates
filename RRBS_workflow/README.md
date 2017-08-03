@@ -65,5 +65,5 @@ Most results will be provided in the current working directory of the script.
 |max_cluster_dist|If refining annotations in COHCAP.avg.by.island(), this is the maximum distance between adjacent filtered sites|
 |min_sites_per_island|Minimum number of probes to for differentially methylated island/promoter|
 |COHCAP_paired|Should COHCAP look for a second variable to consider sample pairing?|
-|wig_types|Can be set to "avg" (group level and delta-beta, for 2-groups), "sample" (separate .wig file per sample", "avg.and.sample", or "none"
+|wig_types|Can be set to "avg" (group level and delta-beta, for 2-groups), "sample" (separate .wig file per sample", "avg.and.sample", or "none".  Since Bismark coverage and bedGraph files already exist for RRBS samples, I recommend either "none" or "avg".|
 |expression_file|If integrating with gene expression, table of values formatted for appropriate workflow.  Otherwise, "NULL"|
