@@ -47,7 +47,7 @@ Most results will be provided in the current working directory of the script.
 |plot_type | Are are QC and heatmap labels "discrete" or "continous"?  Use commas to describe multiple variables.  If continous, orange=high, green=low|
 |dmr_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to include multiple variables (for multivariate model or gene list filtering)|
 |sample_description_file|Name of Sample Description File|
-|gene_region_BED|BED file with promoter / island locations, to create custom site mapping for covered sites.  Region names should be in the format [gene name]\_[COHCAP region name].|
+|gene_region_BED|BED file with promoter / island locations, to create custom site mapping for covered sites.  Region names should be in the format *[gene name]\_[COHCAP region name]*.|
 |gene_region_mapping|Maps probeIDs to location, gene, and promoter/island|
 |cluster_distance| Distance metric for QC dendrogram.  Can be *Euclidean* or *Pearson_Dissimilarity*|
 |treatment_group|Treatment group for primary variable; enter *continuous* for a continuous variable and a correlation will be provided|
