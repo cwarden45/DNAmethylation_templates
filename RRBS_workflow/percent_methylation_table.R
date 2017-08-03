@@ -1,14 +1,19 @@
 param.table = read.table("parameters.txt", header=T, sep="\t")
 min.cov=as.numeric(as.character(param.table$Value[param.table$Parameter == "Min_Coverage"]))
 alignment.folder=as.character(param.table$Value[param.table$Parameter == "Alignment_Folder"])
+result.folder=as.character(param.table$Value[param.table$Parameter == "Result_Folder"])
 alignment.stat.file=as.character(param.table$Value[param.table$Parameter == "aligned_stats_file"])
 quant.type=as.character(param.table$Value[param.table$Parameter == "Quantification_Method"])
 output.prefix=as.character(param.table$Value[param.table$Parameter == "methyl_percent_prefix"])
 sample.description.file=as.character(param.table$Value[param.table$Parameter == "sample_description_file"])
 
-percent.methyl.file = paste(output.prefix,"_",quant.type,"_",min.cov,"x.txt",sep="")
+percent.methyl.file = paste(result.folder,"/",output.prefix,"_",quant.type,"_",min.cov,"x.txt",sep="")
+COHCAP.methyl.file = paste(output.prefix,"_",quant.type,"_",min.cov,"x_for_COHCAP.txt",sep="")
 stat.file = paste("summary_stats_",quant.type,".txt",sep="")
 shared.sites.line.plot = paste("common_sites_per_sample_",quant.type,"_",min.cov,"x.png",sep="")
+
+sep.cov.folder = paste(result.folder,"/Bismark_Coverage_Files",sep="")
+dir.create(sep.cov.folder)
 
 sample.description.table = read.table(sample.description.file, head=T, sep="\t")
 alignment.stat.table = read.table(alignment.stat.file, head=T, sep="\t")
@@ -78,6 +83,10 @@ if(quant.type == "Bismark"){
 			colnames(percent.table) = col.ids
 			print(head(percent.table))
 		}
+		
+		#move extracted file to result folder
+		command = paste("mv ",cov.files[i]," ",sep.cov.folder,sep="")
+		system(command)
 	}#end for (i in 1:nrow(sample.description.table))
 }else if (quant.type == "methylKit"){
 	stop("Need to add code to extract code from methylKit files")
@@ -90,14 +99,14 @@ count.covered = function(arr){
 }#end count.covered
 
 site.covered.by.sample = apply(percent.table, 1, count.covered)
-site.covered.by.sample = table(site.covered.by.sample)
-num.samples = as.numeric(names(site.covered.by.sample))
-site.covered.by.sample = site.covered.by.sample[order(num.samples, decreasing=T)]
-num.samples = as.numeric(names(site.covered.by.sample))
+site.covered.by.sample.table = table(site.covered.by.sample)
+num.samples = as.numeric(names(site.covered.by.sample.table))
+site.covered.by.sample.table = site.covered.by.sample.table[order(num.samples, decreasing=T)]
+num.samples = as.numeric(names(site.covered.by.sample.table))
 cum.cov = c()
 total.sites=0
-for(i in 1:length(site.covered.by.sample)){
-	total.sites = total.sites + site.covered.by.sample[i]
+for(i in 1:length(site.covered.by.sample.table)){
+	total.sites = total.sites + site.covered.by.sample.table[i]
 	cum.cov[i] = total.sites
 }
 cum.cov = cum.cov/1000000
@@ -116,3 +125,12 @@ stat.out.table = data.frame(userID=sample.description.table$userID,
 							alignment.stat.table[match(sample.description.table$sampleID,alignment.stat.table$Sample),1:(ncol(alignment.stat.table)-1)],
 							site.count.1x, site.count.4x, site.count.10x, site.count.20x, site.count.40x)
 write.table(stat.out.table, stat.file, quote=F, sep="\t", row.names=F)
+
+#extra formatting for COHCAP
+percent.table = percent.table[,2:ncol(percent.table)]
+print(dim(percent.table))
+common.sites = common.sites[site.covered.by.sample > 0.5 * ncol(percent.table)]
+percent.table = percent.table[site.covered.by.sample > 0.5 * ncol(percent.table),]
+print(dim(percent.table))
+percent.table = data.frame(SiteID=common.sites, percent.table)
+write.table(percent.table, COHCAP.methyl.file, quote=F, sep="\t", row.names=F)
