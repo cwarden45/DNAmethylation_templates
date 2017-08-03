@@ -42,8 +42,6 @@ Most results will be provided in the current working directory of the script.
 |methyl_percent_prefix|Table of percent methylation values will be called *[methyl_percent_prefix]_[Quantification_Method]_[Min_Coverage]x.txt*|
 |aligned_stats_file|Name of File to Contain Aligned Read Counts and Bismark Coverage Files (if applicable)|
 |Min_Coverage|Minimum Coverage to Analyze Percent Methylation|
-|genome|Name of genome build|
-|Read_Pairing|Are you using single-end (*SE*) or paired-end (*PE*) reads?|
 |comp_name | Name of differential methylation comparison (used to name output file)
 |plot_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to plot multiple groups|
 |plot_type | Are are QC and heatmap labels "discrete" or "continous"?  Use commas to describe multiple variables.  If continous, orange=high, green=low|
@@ -67,3 +65,5 @@ Most results will be provided in the current working directory of the script.
 |COHCAP_paired|Should COHCAP look for a second variable to consider sample pairing?|
 |wig_types|Can be set to "avg" (group level and delta-beta, for 2-groups), "sample" (separate .wig file per sample", "avg.and.sample", or "none".  Since Bismark coverage and bedGraph files already exist for RRBS samples, I recommend either "none" or "avg".|
 |expression_file|If integrating with gene expression, table of values formatted for appropriate workflow.  Otherwise, "NULL"|
+|genome|Name of genome build|
+|Read_Pairing|Are you using single-end (*SE*) or paired-end (*PE*) reads?|
