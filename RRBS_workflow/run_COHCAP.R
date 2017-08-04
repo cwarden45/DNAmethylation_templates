@@ -5,6 +5,7 @@ quant.type=as.character(param.table$Value[param.table$Parameter == "Quantificati
 output.prefix=as.character(param.table$Value[param.table$Parameter == "methyl_percent_prefix"])
 dmr.vars  = as.character(param.table$Value[param.table$Parameter == "dmr_groups"])
 output.format  = as.character(param.table$Value[param.table$Parameter == "COHCAP_output_format"])
+overall.result.folder = as.character(param.table$Value[param.table$Parameter == "Result_Folder"])
 project.folder = as.character(param.table$Value[param.table$Parameter == "project_folder"])
 project.name = as.character(param.table$Value[param.table$Parameter == "comp_name"])
 expression.file = as.character(param.table$Value[param.table$Parameter == "expression_file"])
@@ -24,6 +25,8 @@ sites.per.island = as.numeric(as.character(param.table$Value[param.table$Paramet
 methyl.threshold = as.numeric(as.character(param.table$Value[param.table$Parameter == "methyl_cutoff"]))
 unmethyl.threshold = as.numeric(as.character(param.table$Value[param.table$Parameter == "unmethyl_cutoff"]))
 trt.group = as.character(param.table$Value[param.table$Parameter == "treatment_group"])
+
+project.folder = paste(overall.result.folder,"/",project.folder,sep="")
 
 library(COHCAP)
 
@@ -154,7 +157,7 @@ if(pair.var != "continuous"){
 	pair.var = eval(parse(text=pair.var))
 }	
 
-print("Custom Exon Annotations")
+print("Custom Region Annotations")
 promoter.project = paste("Promoter_",project.name,sep="")
 beta.table = COHCAP.annotate(percent.methyl.file, promoter.project, project.folder,
 								platform="custom", annotation.file = COHCAP.mapping,
