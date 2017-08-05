@@ -8,7 +8,7 @@
 
 4) `qc.R`
 
-5) `run_COHCAP.R`
+5) `run_COHCAP.R` or `run_methylKit.R`
 
 Most results will be provided in the current working directory of the script.
 
