@@ -125,7 +125,7 @@ avgGroupExpression = function (geneExpr, groups) {
 avg.percent.methyl = t(apply(percent.table, 1, avgGroupExpression, groups=prim.2group))
 colnames(avg.percent.methyl)=paste(c(ref.group, trt.group),".avg.percent.methylation",sep="")
 regionID = GR.table$Names[match(percent.regionID, GR.ID)]
-region.percent.table = data.frame(regionID, region.table[,1:4], avg.percent.methyl)
+region.percent.table = data.frame(regionID, region.table[,1:4], percent.table)
 write.table(region.percent.table, region.percent.file, quote=F, sep="\t", row.names=F)
 
 
