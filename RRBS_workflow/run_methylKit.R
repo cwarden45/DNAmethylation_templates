@@ -107,7 +107,7 @@ for(i in 0:(length(sample.table$userID)-1)){
 	meth.index = 5 + i * 3 + 1
 	total.counts = as.numeric(region.table[,cov.index])
 	methyl.counts = as.numeric(region.table[,meth.index])
-	sample.percent = methyl.counts / total.counts
+	sample.percent = 100 * methyl.counts / total.counts
 	
 	if(i ==0){
 		percent.table = data.frame(sample.percent)
