@@ -129,8 +129,8 @@ write.table(stat.out.table, stat.file, quote=F, sep="\t", row.names=F)
 #extra formatting for COHCAP
 percent.table = percent.table[,2:ncol(percent.table)]
 print(dim(percent.table))
-common.sites = common.sites[site.covered.by.sample > 0.5 * ncol(percent.table)]
-percent.table = percent.table[site.covered.by.sample > 0.5 * ncol(percent.table),]
+common.sites = common.sites[site.covered.by.sample > 0.75 * ncol(percent.table)]
+percent.table = percent.table[site.covered.by.sample > 0.75 * ncol(percent.table),]
 print(dim(percent.table))
 percent.table = data.frame(SiteID=common.sites, percent.table)
 write.table(percent.table, COHCAP.methyl.file, quote=F, sep="\t", row.names=F)
