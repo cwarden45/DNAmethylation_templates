@@ -187,3 +187,5 @@ if(expression.file != "NULL"){
 							output.format = output.format)												
 	
 }#end if(expression.file != "NULL")
+
+file.remove(COHCAP.sample.file)
