@@ -93,7 +93,7 @@ if(!file.exists(COHCAP.mapping)){
 	Island = Island[match(as.character(methyl.table$SiteID),names(Island))]
 	
 	#use similar position format as 450k/EPIC arrays
-	site.chr = gsub("chrM","MT",site.chr)
+	#site.chr = gsub("chrM","MT",site.chr)
 	site.chr = gsub("chr","",site.chr)
 	tmp.COHCAP.region.map = data.frame(SiteID=as.character(methyl.table$SiteID),
 										Chr=site.chr,Loc=site.pos,
