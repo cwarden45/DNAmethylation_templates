@@ -97,11 +97,11 @@ refGR = GRanges(Rle(promoter.table$V1),
 				Rle(strand(promoter.table$V6)))
 refGR=unique(refGR)
 GR.table = data.frame(refGR)
-GR.ID = paste(GR.table$seqnames,":",GR.table$start,"-",GR.table$end,sep="")
+GR.ID = paste(GR.table$seqnames,":",GR.table$start,"-",GR.table$end,":",GR.table$strand,sep="")
 					
 regions=regionCounts(meth, regions=refGR)
 region.table = data.frame(regions)
-percent.regionID = paste(region.table$chr,":",region.table$start,"-",region.table$end,sep="")
+percent.regionID = paste(region.table$chr,":",region.table$start,"-",region.table$end,":",region.table$strand,sep="")
 for(i in 0:(length(sample.table$userID)-1)){
 	cov.index = 5 + i * 3
 	meth.index = 5 + i * 3 + 1
@@ -135,7 +135,7 @@ status[(myDiff$meth.diff > island.delta.beta)&(myDiff$pvalue < island.pvalue)&(m
 status[(myDiff$meth.diff < -island.delta.beta)&(myDiff$pvalue < island.pvalue)&(myDiff$qvalue < island.fdr)]=paste(trt.group," Decreased Methylation",sep="")
 print(table(status))
 
-myDiff.ID = paste(myDiff$chr,":",myDiff$start,"-",myDiff$end,sep="")
+myDiff.ID = paste(myDiff$chr,":",myDiff$start,"-",myDiff$end,":",myDiff$strand,sep="")
 
 #if different transcripts have same TSS, there can be fewer names than in the original table, but gene name should be the same
 regionID = GR.table$Names[match(myDiff.ID, GR.ID)]
