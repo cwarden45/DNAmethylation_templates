@@ -15,9 +15,9 @@ methylkit.table = read.table(methylkit.file, head=T, sep="\t")
 cohcap.up = as.character(cohcap.table$gene[cohcap.table[,5] > 0])
 cohcap.down = as.character(cohcap.table$gene[cohcap.table[,5] < 0])
 
-methylkit.up = as.character(methylkit.table$regionID[methylkit.table$status == "Resistant Increased Methylation"])
+methylkit.up = as.character(methylkit.table$regionID[methylkit.table$status == "Trt2 Increased Methylation"])
 methylkit.up = unlist(sapply(as.character(methylkit.up),extract.gene.from.region))
-methylkit.down = as.character(methylkit.table$regionID[methylkit.table$status == "Resistant Decreased Methylation"])
+methylkit.down = as.character(methylkit.table$regionID[methylkit.table$status == "Trt2 Decreased Methylation"])
 methylkit.down = unlist(sapply(as.character(methylkit.down),extract.gene.from.region))
 
 gene.list = list(C.UP=cohcap.up,
