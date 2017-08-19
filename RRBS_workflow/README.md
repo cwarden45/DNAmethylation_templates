@@ -22,6 +22,8 @@ Most results will be provided in the current working directory of the script.
 
 **COHCAP**: https://bioconductor.org/packages/release/bioc/html/COHCAP.html
 
+**BiSeq**: https://bioconductor.org/packages/release/bioc/html/BiSeq.html
+
 **RColorBrewer**: https://cran.r-project.org/web/packages/RColorBrewer/
 
 ### Parameter Values ###
