@@ -1,3 +1,5 @@
+min.percent.observed = 0.75
+
 param.table = read.table("parameters.txt", header=T, sep="\t")
 min.cov=as.numeric(as.character(param.table$Value[param.table$Parameter == "Min_Coverage"]))
 alignment.folder=as.character(param.table$Value[param.table$Parameter == "Alignment_Folder"])
@@ -129,8 +131,8 @@ write.table(stat.out.table, stat.file, quote=F, sep="\t", row.names=F)
 #extra formatting for COHCAP
 percent.table = percent.table[,2:ncol(percent.table)]
 print(dim(percent.table))
-common.sites = common.sites[site.covered.by.sample > 0.75 * ncol(percent.table)]
-percent.table = percent.table[site.covered.by.sample > 0.75 * ncol(percent.table),]
+common.sites = common.sites[site.covered.by.sample > min.percent.observed * ncol(percent.table)]
+percent.table = percent.table[site.covered.by.sample > min.percent.observed * ncol(percent.table),]
 print(dim(percent.table))
 percent.table = data.frame(SiteID=common.sites, percent.table)
 write.table(percent.table, COHCAP.methyl.file, quote=F, sep="\t", row.names=F)
