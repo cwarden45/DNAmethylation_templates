@@ -133,6 +133,7 @@ percent.table = percent.table[,2:ncol(percent.table)]
 print(dim(percent.table))
 common.sites = common.sites[site.covered.by.sample > min.percent.observed * ncol(percent.table)]
 percent.table = percent.table[site.covered.by.sample > min.percent.observed * ncol(percent.table),]
+percent.table = round(percent.table / 100, digits=2)
 print(dim(percent.table))
 percent.table = data.frame(SiteID=common.sites, percent.table)
 write.table(percent.table, COHCAP.methyl.file, quote=F, sep="\t", row.names=F)
