@@ -4,7 +4,7 @@
 
 2) `collect_alignment_stats.pl`
 
-3) `percent_methylation_table.R`
+3) `percent_methylation_table.R` or `percent_methylation_table_DESTRANDED.R`
 
 4) `qc.R`
 
@@ -44,6 +44,8 @@ Most results will be provided in the current working directory of the script.
 |methyl_percent_prefix|Table of percent methylation values will be called *[methyl_percent_prefix]\_[Quantification_Method]\_[Min_Coverage]x.txt*|
 |aligned_stats_file|Name of File to Contain Aligned Read Counts and Bismark Coverage Files (if applicable)|
 |Min_Coverage|Minimum Coverage to Analyze Percent Methylation|
+|Min_Coverage_Pair|If using `percent_methylation_table_DESTRANDED.R` to create a table of destranded methylation values, this is the minimum coverage for both positions in CpG.  So, if *Min_Coverage* = 10, and *Min_Coverage_Pair* = 4, then both forward and reverse position must have 4 reads and the sum of reads for both positions must be greater than 10.|
+|FA_Ref|If you don't have a .bed file with CpG sites (in `percent_methylation_table_DESTRANDED.R`, this is "[genome]\_CpG.bed"), such a file can be created from a reference .fa file|
 |comp_name | Name of differential methylation comparison (used to name output file)
 |plot_groups | Names of columns in *sample_description_file* to be plotted in QC and differential methylation plots.  Use commas to plot multiple groups|
 |plot_type | Are are QC and heatmap labels "discrete" or "continous"?  Use commas to describe multiple variables.  If continous, orange=high, green=low|
