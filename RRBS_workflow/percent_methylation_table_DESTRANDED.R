@@ -110,9 +110,9 @@ if(quant.type == "Bismark"){
 		rm(temp.percent)
 		rm(temp.siteID)
 		
-		#comment to skip moving extracted file to result folder (if it is there already)
+		#uncomment to move extracted file to result folder (if it is not there already)
 		command = paste("mv ",cov.files[i]," ",sep.cov.folder,sep="")
-		system(command)
+		#system(command)
 	}#end for (i in 1:nrow(sample.description.table))
 }else if (quant.type == "methylKit"){
 	stop("Need to add code to extract destranded methylation from methylKit files")
