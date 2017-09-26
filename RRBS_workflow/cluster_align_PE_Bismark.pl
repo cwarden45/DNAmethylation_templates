@@ -163,6 +163,8 @@ foreach my $file (@files){
 				print "Make rule for strand $strand_type\n";
 				exit;
 			}
+			#methylation calls and summary
+			my $bismarkBam = "$outputfolder/$tg_prefix\_val_1_bismark_bt2_pe.bam";
 			
 			if($quant_method eq "Bismark"){
 				#methylation calls and summary
