@@ -66,6 +66,7 @@ close(PARAM);
 
 if(($quant_method eq "")||($quant_method eq "[[required]]")){
 	die("Need to enter a value for 'Quantification_Method'!\n");
+}
 
 if(($ref eq "")||($ref eq "[[required]]")){
 	die("Need to enter a value for 'Bismark_Ref'!\n");
