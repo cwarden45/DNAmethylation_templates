@@ -66,12 +66,15 @@ if(is.null(dim(dmr.cols))){
 	userID = names(dmr.cols)
 	var1=dmr.cols
 }else{
-	stop("Add code for multi-variate BiSeq analysis")
 	rownames(dmr.cols) = userID
 	dmr.cols = na.omit(dmr.cols)
 	userID = rownames(dmr.cols)
 	var1=dmr.cols[,1]
-}
+	var2=dmr.cols[,2]
+	if(ncol(dmr.cols) > 2){
+		stop("Define extra variables, and add them to formula")
+	}#end if(ncol(dmr.cols) > 2)
+}#end else
 
 if(trt.group != "continuous"){
 	grp.levels = levels(as.factor(var1))
@@ -140,11 +143,14 @@ write.table(site.methyl, site.percent.file, row.names=F, quote=F, sep="\t")
 print("CpG Site Test")
 if(is.null(dim(dmr.cols))){
 	betaResults = betaRegression(formula = ~var1,
-								link = "probit",
-								object = predictedMeth,
-								type = "BR", mc.cores=threads)
+					link = "probit",
+					object = predictedMeth,
+					type = "BR", mc.cores=threads)
 }else{
-	stop("Add code for multi-variate BiSeq analysis, step #2")
+	betaResults = betaRegression(formula = ~var1+var2,
+						link = "probit",
+						object = predictedMeth,
+						type = "BR", mc.cores=threads)
 }
 
 site.fdr = p.adjust(betaResults$p.val, 'fdr')
