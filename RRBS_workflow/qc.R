@@ -29,7 +29,7 @@ plot.types = unlist(strsplit(as.character(param.table$Value[param.table$Paramete
 fixed.color.palatte = c("green","orange","purple","cyan","pink","maroon","yellow","grey","red","blue","black",rainbow(100))
 continuous.color.breaks = 10
 
-beta.file = paste(output.prefix,"_",quant.type,"_",min.cov,"x.txt",sep="")
+beta.file = paste(output.prefix,"_",quant.type,"_",min.cov,"x_for_COHCAP.txt",sep="")
 
 sample.table = read.table(sample.description.file, sep="\t", header=T)
 userID = as.character(sample.table$userID)
