@@ -187,6 +187,13 @@ median.fdr = tapply(site.fdr, overlaps$Names, median, na.rm=T)
 median.fdr = median.fdr[match(dmrID, names(median.fdr))]
 
 DMRs=data.frame(DMRs[1:6],median.fdr,DMRs[7:ncol(DMRs)],sites.per.region, sites.in.region)
+
+status = rep("No Change",nrow(DMRs))
+status[(DMRs$median.p <= island.pvalue)&(DMRs$median.fdr <= island.fdr)&(DMRs$sites.per.region >= sites.per.island)&( DMRs$median.meth.diff >= island.delta.beta)]=paste(trt.group," Up")
+status[(DMRs$median.p <= island.pvalue)&(DMRs$median.fdr <= island.fdr)&(DMRs$sites.per.region >= sites.per.island)&( DMRs$median.meth.diff <= -island.delta.beta)]=paste(trt.group," Down")
+print(table(status))
+
+DMRs = data.frame(DMRs, status)
 write.table(DMRs, dmr.file, row.names=F, quote=F, sep="\t")
 
 save.image(file=RData.file)
