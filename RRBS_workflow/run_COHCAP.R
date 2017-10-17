@@ -184,7 +184,7 @@ if(expression.file != "NULL"){
 							project.folder=project.folder, expr.file=expression.file,
 							sample.file=COHCAP.sample.file, cor.pvalue.cutoff=0.05,
 							cor.fdr.cutoff=0.05, cor.cutoff=-0.2, plot.scatter=T,
-							output.format = output.format)												
+							output.format = output.format, ref = ref)												
 	
 }#end if(expression.file != "NULL")
 
