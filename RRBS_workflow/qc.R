@@ -166,7 +166,7 @@ for (i in 1:length(plot.groups)){
 					expr = den$x
 					freq = den$y
 					plot(expr, freq, type="l", xlab = paste("Percent Methylation",sep=""), ylab = "Density",
-							xlim=c(0,1), ylim=c(0,0.1),
+							xlim=c(0,1), ylim=c(0,6),
 							col=labelColors[j], main=paste("Color by ",group,sep=""))
 					if(group.type == "continuous"){
 						legend("right",legend=c(round(plot.var.max,digits=1),rep("",length(color.range)-2),round(plot.var.min,digits=1)),
