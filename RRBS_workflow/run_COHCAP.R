@@ -28,6 +28,7 @@ trt.group = as.character(param.table$Value[param.table$Parameter == "treatment_g
 
 project.folder = paste(overall.result.folder,"/",project.folder,sep="")
 
+#.libPaths("test_R_lib")
 library(COHCAP)
 
 percent.methyl.file = paste(output.prefix,"_",quant.type,"_",min.cov,"x_for_COHCAP.txt",sep="")
