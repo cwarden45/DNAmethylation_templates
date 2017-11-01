@@ -167,8 +167,8 @@ beta.table = COHCAP.annotate(percent.methyl.file, promoter.project, project.fold
 print("Custom Differentially Methylated Sites")
 filtered.sites = COHCAP.site(COHCAP.sample.file, beta.table, promoter.project, project.folder, ref=ref,
 								methyl.cutoff=methyl.threshold, unmethyl.cutoff=unmethyl.threshold,
-								delta.beta = site.delta.beta, ttest.sub="ANOVA",
-								pvalue.cutoff = site.pvalue, fdr.cutoff=site.fdr,
+								delta.beta = site.delta.beta, pvalue.cutoff = site.pvalue, fdr.cutoff=site.fdr,
+								alt.pvalue == "rANOVA.1way", #unless you want another non-default method, this will only affect 2-group, 1-variable comparison
 								create.wig = wig.output, paired=pair.var,
 								num.groups=num.groups, output.format = output.format)
 
@@ -177,7 +177,8 @@ promoter.list = COHCAP.avg.by.island(COHCAP.sample.file, filtered.sites, beta.ta
 									project.folder, methyl.cutoff=methyl.threshold, unmethyl.cutoff = unmethyl.threshold,
 									delta.beta.cutoff = island.delta.beta, pvalue.cutoff=island.pvalue, fdr.cutoff=island.fdr,
 									num.groups=num.groups, num.sites=sites.per.island, plot.box=TRUE, plot.heatmap =TRUE,
-				     					max.cluster.dist=max.cluster.dist, ttest.sub="ANOVA",
+				     					max.cluster.dist=max.cluster.dist,
+				     					alt.pvalue == "rANOVA.1way", #unless you want another non-default method, this will only affect 2-group, 1-variable comparison
 									paired=pair.var, ref=ref, output.format = output.format)
 if(expression.file != "NULL"){
 	print("Custom Integration with Gene Expression Data")
