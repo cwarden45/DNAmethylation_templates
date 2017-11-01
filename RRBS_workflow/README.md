@@ -67,7 +67,7 @@ Most results will be provided in the current working directory of the script.
 |COHCAP_num_groups|Number of groups for COHCAP workflow|
 |max_cluster_dist|If refining annotations in COHCAP.avg.by.island(), this is the maximum distance between adjacent filtered sites|
 |min_sites_per_island|Minimum number of probes to for differentially methylated island/promoter|
-|COHCAP_paired|Should COHCAP look for a second variable to consider sample pairing?|
+|COHCAP_paired|Should COHCAP look for a second variable to consider sample pairing?  Please note that by setting this to "TRUE", you are allowing analysis with a second variable (even if "pairing" is not 1-to-1).  Otherwise, COHCAP does not automatically recognize additional columns in the sample description file.  For some workflows, this can be set to "continuous" for analysis of a continuous co-variate.|
 |wig_types|Can be set to "avg" (group level and delta-beta, for 2-groups), "sample" (separate .wig file per sample", "avg.and.sample", or "none".  Since Bismark coverage and bedGraph files already exist for RRBS samples, I recommend either "none" or "avg".|
 |expression_file|If integrating with gene expression, table of values formatted for appropriate workflow.  Otherwise, "NULL"|
 |genome|Name of genome build|
