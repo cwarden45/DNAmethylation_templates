@@ -28,6 +28,11 @@ trt.group = as.character(param.table$Value[param.table$Parameter == "treatment_g
 library.type = as.character(param.table$Value[param.table$Parameter == "Read_Pairing"])
 genome=as.character(param.table$Value[param.table$Parameter == "genome"])
 
+if((island.delta.beta > 0)&(island.delta.beta < 1)){
+	print("Island Delta-Beta threshold is between 0 and 1: Do you need to update COHCAP beta to value between 0 and 100?")
+	stop()
+}
+
 sep.cov.folder = paste(overall.result.folder,"/Bismark_Coverage_Files",sep="")
 project.folder = paste(overall.result.folder,"/",project.folder,sep="")
 dir.create(project.folder)
