@@ -6,6 +6,8 @@
 
 3) `percent_methylation_table.R` or `percent_methylation_table_DESTRANDED.R`
 
+Cumulative site coverage plots based upon figures from [Carmona et al. 2017](https://www.nature.com/articles/s41525-017-0012-9)
+
 4) `qc.R`
 
 5) `run_COHCAP.R` or `run_methylKit.R`
