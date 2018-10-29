@@ -1,4 +1,4 @@
-### ~Temporary Note~ ###
+### \~Temporary Note\~ ###
 **I apologize for the confusion, but I believe that I should emphasize that these are called “templates” because I almost always have to modify the code for each project (beyond the parameter files), meaning they will be more difficult for other people to use in the same way.**  This was unfortunately not immediately clear to me when I created the templates.
 
 I also believe that the process of writing the scripts for analysis (such as the templates) is very important for the learning process, and it is very important that you understand all the steps for analysis before presenting them in a paper.
