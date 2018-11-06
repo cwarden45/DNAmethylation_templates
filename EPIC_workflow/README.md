@@ -5,7 +5,6 @@ I also believe that the process of writing the scripts for analysis (such as the
 
 So, I will post an update when more specific guidance / suggestions can be provided.
 
-
 ### Order to Run Scripts ###
 
 1) `minfi_preprocess.R` or `reformat_GenomeStudio_Pval_01.R`
