@@ -74,11 +74,22 @@ if(is.null(dim(dmr.cols))){
 	}
 
 }else{
-	stop("Add code for multi-variate methylKit analysis")
 	rownames(dmr.cols) = userID
 	dmr.cols = na.omit(dmr.cols)
 	userID = rownames(dmr.cols)
-}
+	
+	if(length(levels(dmr.cols[,1])) == 2){
+		prim.2group = rep(0,length(dmr.cols[,1]))
+		prim.2group[dmr.cols[,1] == trt.group]=1
+		ref.group = levels(dmr.cols[,1])[levels(dmr.cols[,1]) != trt.group]
+		
+		covariate=data.frame(dmr.cols[,2:ncol(dmr.cols)])
+		names(covariate)=names(dmr.cols)[2:ncol(dmr.cols)]
+	}else{
+		stop("methylKit requires 2-group primary variable (with or without covariates)")
+	}#end else
+}#end else
+
 
 sample.table = sample.table[match(userID, as.character(sample.table$userID)),]
 comp.files = bismark.cov.files[match(sample.table$sampleID,sampleID)]
@@ -133,8 +144,12 @@ regionID = GR.table$Names[match(percent.regionID, GR.ID)]
 region.percent.table = data.frame(regionID, region.table[,1:4], percent.table)
 write.table(region.percent.table, region.percent.file, quote=F, sep="\t", row.names=F)
 
+if(is.null(dim(dmr.cols))){
+	myDiff=data.frame(calculateDiffMeth(regions))
+}else{
+	myDiff=data.frame(calculateDiffMeth(regions, covariates=covariate))
+}
 
-myDiff=data.frame(calculateDiffMeth(regions))
 status = rep("No Change",nrow(myDiff))
 status[(myDiff$meth.diff > island.delta.beta)&(myDiff$pvalue < island.pvalue)&(myDiff$qvalue < island.fdr)]=paste(trt.group," Increased Methylation",sep="")
 status[(myDiff$meth.diff < -island.delta.beta)&(myDiff$pvalue < island.pvalue)&(myDiff$qvalue < island.fdr)]=paste(trt.group," Decreased Methylation",sep="")

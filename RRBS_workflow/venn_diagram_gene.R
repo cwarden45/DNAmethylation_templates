@@ -1,8 +1,8 @@
 library("Vennerable")
 #install manually
 
-cohcap.file = "../../Result/COHCAP_Results/CpG_Island/Promoter_[compID]_CpG_island_filtered-Avg_by_Island.txt"
-methylkit.file = "../../Result/methylKit_Results/[compID]_CpG_Island_methylKit_DMR_stats.txt"
+cohcap.file = "../../Results/COHCAP_Results/CpG_Island/Promoter_[compID]_CpG_island_filtered-Avg_by_Island.txt"
+methylkit.file = "../../Results/methylKit_Results/[compID]_CpG_Island_methylKit_DMR_stats.txt"
 
 extract.gene.from.region = function(char){
 	char.info = unlist(strsplit(char,split="_"))
