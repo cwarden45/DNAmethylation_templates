@@ -16,6 +16,8 @@ So, I will post an update when more specific guidance / suggestions can be provi
 
 3) `percent_methylation_table.R` or `percent_methylation_table_DESTRANDED.R`
 
+The cumulative number of sites per sample is based upon Figure 3 in [Carmona et al. 2017](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642382/).
+
 4) `qc.R`
 
 5) `run_COHCAP.R` or `run_methylKit.R`
