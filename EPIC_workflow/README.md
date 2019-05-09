@@ -1,4 +1,7 @@
-Please see the [COHCAP manual](https://bioconductor.org/packages/release/bioc/vignettes/COHCAP/inst/doc/COHCAP.pdf) for acknowledgements
+Please see the [COHCAP manual](https://bioconductor.org/packages/release/bioc/vignettes/COHCAP/inst/doc/COHCAP.pdf) for acknowledgements.
+
+The most relevant parts are probably "*we would like to acknowledge **Yuan Yuan MD/PhD** for having a project used for initial EPIC testing in the standalone version (which also caused me to debug the "custom" annotation function in COHCAP), **Susan Neuhausen / Ding Yuan Chun** for projects that led to the addition of continuous variable linear regression analysis, ... ,and **Shiuan Chen** (application to EPIC dataset, collaboration with Susan
+Neuhausen).*"
 
 ### \~Temporary Note\~ ###
 **I apologize for the confusion, but I would like to emphasize that these are called “templates” because I almost always have to modify the code for each project (beyond the parameter files), meaning they will be more difficult for other people to use in the same way.**  This was unfortunately not immediately clear to me when I created the templates.
