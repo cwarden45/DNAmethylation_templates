@@ -1,4 +1,4 @@
-Please see the [COHCAP manual](https://bioconductor.org/packages/release/bioc/vignettes/COHCAP/inst/doc/COHCAP.pdf) for acknowledgements
+Please see the [COHCAP manual](https://bioconductor.org/packages/release/bioc/vignettes/COHCAP/inst/doc/COHCAP.pdf) for acknowledgements.  The most relevant part is probably "*we would like to acknowledge ... Yapeng Su (Caltech) for having a project to test application of COHCAP to RRBSdata*."
 
 ### \~Temporary Note\~ ###
 **I apologize for the confusion, but I would like to emphasize that these are called “templates” because I almost always have to modify the code for each project (beyond the parameter files), meaning they will be more difficult for other people to use in the same way.**  This was unfortunately not immediately clear to me when I created the templates.
